@@ -24,6 +24,8 @@ requirements:
   run:
     - python >=3.8
     - django >=2.2,<5.0
+    # pkg_resources is required, which lives in the setuptools package
+    - setuptools
 
 about:
   home: http://haystacksearch.org/
