@@ -1,28 +1,29 @@
 {% set name = "django-haystack" %}
-{% set version = "2.8.1" %}
-{% set sha256 = "8b54bcc926596765d0a3383d693bcdd76109c7abb6b2323b3984a39e3576028c" %}
+{% set version = "3.2.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-haystack-{{ version }}.tar.gz
+  sha256: 97e3197aefc225fe405b6f17600a2534bf827cb4d6743130c20bc1a06f7293a4
 
 build:
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python
+    - python >=3.8
+    - setuptools >=42
+    - wheel
+    - setuptools-scm >=3.4
     - pip
-    - setuptools_scm
   run:
-    - python
-    - django >=1.11
+    - python >=3.8
+    - django >=2.2,<5.0
     # pkg_resources is required, which lives in the setuptools package
     - setuptools
 
@@ -42,4 +43,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - rxm7706
     - scopatz
