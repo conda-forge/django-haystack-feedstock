@@ -17,15 +17,14 @@ build:
 requirements:
   host:
     - python >=3.8
-    - setuptools >=42
-    - wheel
+    - setuptools >=61.2
     - setuptools-scm >=3.4
+    - wheel
     - pip
   run:
     - python >=3.8
-    - django >=2.2,<5.0
-    # pkg_resources is required, which lives in the setuptools package
-    - setuptools
+    - django >=3.2
+    - packaging
 
 about:
   home: http://haystacksearch.org/
