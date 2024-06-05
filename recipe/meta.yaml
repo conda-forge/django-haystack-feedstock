@@ -1,13 +1,13 @@
 {% set name = "django-haystack" %}
-{% set version = "3.2.1" %}
+{% set version = "3.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-haystack-{{ version }}.tar.gz
-  sha256: 97e3197aefc225fe405b6f17600a2534bf827cb4d6743130c20bc1a06f7293a4
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: e3ceed6b8000625da14d409eb4dac69894905e2ac8ac18f9bfdb59323ca02eab
 
 build:
   noarch: python
@@ -17,15 +17,14 @@ build:
 requirements:
   host:
     - python >=3.8
-    - setuptools >=42
-    - wheel
+    - setuptools >=61.2
     - setuptools-scm >=3.4
+    - wheel
     - pip
   run:
     - python >=3.8
-    - django >=2.2,<5.0
-    # pkg_resources is required, which lives in the setuptools package
-    - setuptools
+    - django >=3.2
+    - packaging
 
 about:
   home: http://haystacksearch.org/
